@@ -65,5 +65,18 @@ namespace Employee.Repository
             }
         }
 
+        public int PopulateData(string storedProcedure, SqlParameter[] parameters)
+        {
+            using (SqlCommand cmd = new SqlCommand(storedProcedure, _connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                if (parameters != null)
+                    cmd.Parameters.AddRange(parameters);
+
+                return cmd.ExecuteNonQuery(); 
+            }
+        }
+
     }
 }
