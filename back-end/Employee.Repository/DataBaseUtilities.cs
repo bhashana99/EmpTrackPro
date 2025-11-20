@@ -23,5 +23,13 @@ namespace Employee.Repository
             }
         }
 
+        public void closeConnection()
+        {
+            if(_connection != null && _connection.State != ConnectionState.Closed)
+            {
+                _connection.Close();
+            }
+        }
+
     }
 }
