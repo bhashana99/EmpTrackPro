@@ -1,0 +1,4 @@
+CREATE DATABASE EmpTrackProDB;
+GO
+USE EmpTrackProDB;
+GO
