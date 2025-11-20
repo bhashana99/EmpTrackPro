@@ -1,0 +1,21 @@
+# Visual Studio files
+.vs/
+
+# Build folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet packages
+*.nupkg
+packages/
+project.lock.json
+
+# Others
+*.DS_Store
+
