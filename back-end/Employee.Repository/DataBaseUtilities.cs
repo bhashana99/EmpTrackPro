@@ -31,5 +31,22 @@ namespace Employee.Repository
             }
         }
 
+        public DataTable Select(string storedProcedure, SqlParameter[] parameters = null)
+        {
+            using (SqlCommand cmd = new SqlCommand(storedProcedure, _connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                if (parameters != null)
+                    cmd.Parameters.AddRange(parameters);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                da.Fill(table);
+
+                return table;
+            }
+        }
+
     }
 }
