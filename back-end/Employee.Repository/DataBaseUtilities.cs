@@ -48,5 +48,22 @@ namespace Employee.Repository
             }
         }
 
+        public DataSet SelectDataSet(string storedProcedure, SqlParameter[] parameters = null)
+        {
+            using (SqlCommand cmd = new SqlCommand(storedProcedure, _connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                if (parameters != null)
+                    cmd.Parameters.AddRange(parameters);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                return ds;
+            }
+        }
+
     }
 }
