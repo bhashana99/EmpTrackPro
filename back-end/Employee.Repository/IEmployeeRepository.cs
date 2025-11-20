@@ -1,4 +1,4 @@
-﻿using Employee.Models.Models;
+﻿using Employee.Models.Entities;
 
 namespace Employee.Repository
 {
