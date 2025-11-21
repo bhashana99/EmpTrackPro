@@ -7,11 +7,11 @@ namespace EmpTrackPro.API.Services
 {
     public interface IEmployeeService
     {
-        Task<IEnumerable<Employee>> GetAllAsync();
-        Task<EmployeeDTO> GetByIdAsync(int employeeNo);
+        //Task<IEnumerable<Employee>> GetAllAsync();
+        //Task<EmployeeDTO> GetByIdAsync(int employeeNo);
         Task AddAsync(EmployeeDTO employeeDto);
-        Task UpdateAsync(EmployeeDTO employeeDto);
-        Task DeleteAsync(int employeeNo);
-        Task<decimal> GetAverageSalaryAsync();
+        //Task UpdateAsync(EmployeeDTO employeeDto);
+        //Task DeleteAsync(int employeeNo);
+        //Task<decimal> GetAverageSalaryAsync();
     }
 }
