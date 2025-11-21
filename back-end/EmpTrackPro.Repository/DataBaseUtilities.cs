@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace Employee.Repository
+namespace EmpTrackPro.Repository
 {
     public class DataBaseUtilities
     {
@@ -75,6 +75,19 @@ namespace Employee.Repository
                     cmd.Parameters.AddRange(parameters);
 
                 return cmd.ExecuteNonQuery(); 
+            }
+        }
+
+        public int Delete(string storedProcedure, SqlParameter[] parameters)
+        {
+            using (SqlCommand cmd = new SqlCommand(storedProcedure, _connection))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                if (parameters != null)
+                    cmd.Parameters.AddRange(parameters);
+
+                return cmd.ExecuteNonQuery();
             }
         }
 

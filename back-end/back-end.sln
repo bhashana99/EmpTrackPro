@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36511.14 d17.14
+VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.API", "Employee.API\Employee.API.csproj", "{BBE633F4-140A-4D78-B305-A045AD8564FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpTrackPro.API", "EmpTrackPro.API\EmpTrackPro.API.csproj", "{50CCD031-7313-0E2F-F63A-15DAA7B2CECF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Models", "Employee.Models\Employee.Models.csproj", "{2A2A645A-25F9-406A-BACE-E0CC070B465D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpTrackPro.Models", "EmpTrackPro.Models\EmpTrackPro.Models.csproj", "{13FA532A-6B80-1958-C4AA-953BC9167146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Repository", "Employee.Repository\Employee.Repository.csproj", "{F831863F-21ED-428D-AB42-674A776DDFE0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpTrackPro.Repository", "EmpTrackPro.Repository\EmpTrackPro.Repository.csproj", "{6D6ECE54-53A6-FBF1-A255-BBD89229AA17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BBE633F4-140A-4D78-B305-A045AD8564FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBE633F4-140A-4D78-B305-A045AD8564FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBE633F4-140A-4D78-B305-A045AD8564FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBE633F4-140A-4D78-B305-A045AD8564FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A2A645A-25F9-406A-BACE-E0CC070B465D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A2A645A-25F9-406A-BACE-E0CC070B465D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A2A645A-25F9-406A-BACE-E0CC070B465D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A2A645A-25F9-406A-BACE-E0CC070B465D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F831863F-21ED-428D-AB42-674A776DDFE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F831863F-21ED-428D-AB42-674A776DDFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F831863F-21ED-428D-AB42-674A776DDFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F831863F-21ED-428D-AB42-674A776DDFE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50CCD031-7313-0E2F-F63A-15DAA7B2CECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50CCD031-7313-0E2F-F63A-15DAA7B2CECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50CCD031-7313-0E2F-F63A-15DAA7B2CECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50CCD031-7313-0E2F-F63A-15DAA7B2CECF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13FA532A-6B80-1958-C4AA-953BC9167146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13FA532A-6B80-1958-C4AA-953BC9167146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13FA532A-6B80-1958-C4AA-953BC9167146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13FA532A-6B80-1958-C4AA-953BC9167146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D6ECE54-53A6-FBF1-A255-BBD89229AA17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D6ECE54-53A6-FBF1-A255-BBD89229AA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D6ECE54-53A6-FBF1-A255-BBD89229AA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D6ECE54-53A6-FBF1-A255-BBD89229AA17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

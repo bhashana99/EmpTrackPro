@@ -1,6 +1,6 @@
-﻿namespace Employee.Models.DTOs
+﻿namespace EmpTrackPro.Models.Entities
 {
-    public class EmployeeDTO
+    public class Employee
     {
         public int EmployeeNo { get; set; }
         public string FirstName { get; set; }

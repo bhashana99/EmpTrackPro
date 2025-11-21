@@ -1,10 +1,13 @@
-﻿using Employee.Models.DTOs;
+﻿
+using EmpTrackPro.Models.DTOs;
+using EmpTrackPro.Models.Entities;
 
-namespace Employee.API.Services
+
+namespace EmpTrackPro.API.Services
 {
     public interface IEmployeeService
     {
-        Task<IEnumerable<EmployeeDTO>> GetAllAsync();
+        Task<IEnumerable<Employee>> GetAllAsync();
         Task<EmployeeDTO> GetByIdAsync(int employeeNo);
         Task AddAsync(EmployeeDTO employeeDto);
         Task UpdateAsync(EmployeeDTO employeeDto);

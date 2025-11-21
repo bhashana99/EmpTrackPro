@@ -1,4 +1,4 @@
-namespace Employee.Models
+namespace EmpTrackPro.API
 {
     public class WeatherForecast
     {

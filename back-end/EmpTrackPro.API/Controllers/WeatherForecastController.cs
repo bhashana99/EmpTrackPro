@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Employee.API.Controllers
+namespace EmpTrackPro.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
