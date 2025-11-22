@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employee.model';
@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-employee-form',
-  standalone:true,
+  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './employee-form.component.html',
   styleUrl: './employee-form.component.css',
 })
 export class EmployeeFormComponent implements OnInit {
+  @Input() selectedEmployee!: Employee | null;
+
   employeeForm!: FormGroup;
   maxDate!: string;
 
@@ -23,7 +25,7 @@ export class EmployeeFormComponent implements OnInit {
       employeeNo: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      dob: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
       salary: ['', Validators.required],
     });
 
@@ -33,6 +35,20 @@ export class EmployeeFormComponent implements OnInit {
     this.maxDate = yesterday.toISOString().split('T')[0];
   }
 
+ ngOnChanges(changes: SimpleChanges) {
+  if (changes['selectedEmployee'] && this.selectedEmployee) {
+    const emp = { ...this.selectedEmployee };
+
+   
+    if (emp.dateOfBirth) {
+      const date = new Date(emp.dateOfBirth);
+      emp.dateOfBirth = date.toISOString().split('T')[0]; 
+    }
+
+    this.employeeForm.patchValue(emp);
+  }
+}
+
   onAddEmployee() {
     const formValue = this.employeeForm.value;
 
@@ -40,7 +56,7 @@ export class EmployeeFormComponent implements OnInit {
       employeeNo: formValue.employeeNo,
       firstName: formValue.firstName,
       lastName: formValue.lastName,
-      dateOfBirth: new Date(formValue.dob).toISOString().split('T')[0],
+      dateOfBirth: new Date(formValue.dateOfBirth).toISOString().split('T')[0],
       salary: formValue.salary,
     };
     console.log('add button click', employeeDto);

@@ -2,7 +2,7 @@
 
 
   <h2 class="text-4xl text-center font-extrabold mb-10  text-gray-700">
-    Employee Information Form
+    EmpTrack Pro
   </h2>
 
   <form [formGroup]="employeeForm"  class="space-y-4">
@@ -40,7 +40,7 @@
       <label class="text-gray-700 font-medium">Date of Birth</label>
       <input
         type="date"
-        formControlName="dob"
+        formControlName="dateOfBirth"
         [max]="maxDate"
         class="col-span-2 w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring"
       />
@@ -72,12 +72,7 @@
         Update
       </button>
 
-      <button
-        type="button" 
-        class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
-      >
-        Delete
-      </button>
+     
 
       <button
         type="button"

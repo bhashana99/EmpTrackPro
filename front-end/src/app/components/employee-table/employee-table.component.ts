@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { Employee } from '../../models/employee.model';
+import { Employee } from './../../models/employee.model';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeService } from '../../services/employee.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./employee-table.component.css'],
 })
 export class EmployeeTableComponent implements OnInit {
+
+  @Output() edit = new EventEmitter<any>();
   
   constructor(private employeeService: EmployeeService) {}
 
@@ -20,6 +22,14 @@ export class EmployeeTableComponent implements OnInit {
 
   get employees(){
     return this.employeeService.employees();
+  }
+
+  onEdit(employee : Employee){
+    this.edit.emit(employee);
+  }
+
+  onDelete(employeNo : number){
+
   }
 
   
