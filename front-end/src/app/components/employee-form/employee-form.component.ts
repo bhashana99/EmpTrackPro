@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { EmployeeService } from '../../services/employee.service';
+import { Employee } from '../../models/employee.model';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-employee-form',
-
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,HttpClientModule],
   templateUrl: './employee-form.component.html',
   styleUrl: './employee-form.component.css',
 })
@@ -15,7 +17,7 @@ export class EmployeeFormComponent implements OnInit {
   maxDate !: string;
 
   
-  constructor(private fb:FormBuilder){}
+  constructor(private fb:FormBuilder, private employeeService: EmployeeService){}
 
   ngOnInit() {
     this.employeeForm = this.fb.group({
@@ -35,8 +37,10 @@ export class EmployeeFormComponent implements OnInit {
 
   
 
-  onAdd(){
-    console.log("add button click");
+  onAddEmployee(){
+    const employeeDto : Employee = this.employeeForm.value;
+
+    console.log("add button click",employeeDto);
 
   }
 
