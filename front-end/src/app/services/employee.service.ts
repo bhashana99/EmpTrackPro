@@ -25,4 +25,8 @@ export class EmployeeService {
     });
   }
 
+  deleteEmployee(employeeNo : number):Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/${employeeNo}`);
+  }
+
 }

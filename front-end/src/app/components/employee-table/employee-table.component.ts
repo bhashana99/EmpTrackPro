@@ -29,7 +29,21 @@ export class EmployeeTableComponent implements OnInit {
     this.edit.emit(employee);
   }
 
-  onDelete(employeNo: number) {}
+  onDelete(employeeNo: number) {
+    if (!confirm('Are you sure you want to delete this employee?')) return;
 
-  
+    this.employeeService.deleteEmployee(employeeNo).subscribe({
+      next: () => {
+        console.log('Employee deleted:', employeeNo);
+        this.employeeService.loadEmployees();
+
+        if (this.editedEmployeeNo === employeeNo) {
+          this.editedEmployeeNo = null; 
+        }
+      },
+      error(err) {
+        console.log('error adding employee ', err);
+      },
+    });
+  }
 }
