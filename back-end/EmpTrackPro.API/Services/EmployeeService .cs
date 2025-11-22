@@ -30,5 +30,22 @@ namespace EmpTrackPro.API.Services
             await Task.CompletedTask;
         }
 
+        public async Task<IEnumerable<EmployeeDTO>> GetAllAsync()
+        {
+            var employees = _repo.GetAll();
+
+            
+            var employeeDTOs = employees.Select(e => new EmployeeDTO
+            {
+                EmployeeNo = e.EmployeeNo,
+                FirstName = e.FirstName,
+                LastName = e.LastName,
+                DateOfBirth = e.DateOfBirth,
+                Salary = e.Salary
+            });
+
+            return await Task.FromResult(employeeDTOs);
+        }
+
     }
 }

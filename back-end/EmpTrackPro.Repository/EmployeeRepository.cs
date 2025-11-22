@@ -1,5 +1,6 @@
 ﻿using EmpTrackPro.Models.Entities;
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace EmpTrackPro.Repository
 {
@@ -37,9 +38,31 @@ namespace EmpTrackPro.Repository
             {
                 _db.closeConnection();
             }
+        }
 
+        public IEnumerable<Employee> GetAll()
+        {
+            _db.openConnection();
 
+            DataTable dt = _db.Select("usp_GetAllEmployees");
 
+            _db.closeConnection();
+
+            List<Employee> list = new List<Employee>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(new Employee
+                {
+                    EmployeeNo = Convert.ToInt32(row["EmployeeNo"]),
+                    FirstName = row["FirstName"].ToString(),
+                    LastName = row["LastName"].ToString(),
+                    DateOfBirth = Convert.ToDateTime(row["DateOfBirth"]),
+                    Salary = Convert.ToDecimal(row["Salary"])
+                });
+            }
+
+            return list;
         }
     }
 }

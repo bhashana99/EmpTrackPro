@@ -20,5 +20,12 @@ namespace EmpTrackPro.API.Controllers
             await _employeeService.AddAsync(employee);
             return StatusCode(201, new { Message= "Employee Created" });
         }
+
+        [HttpGet] 
+        public async Task<ActionResult<IEnumerable<EmployeeDTO>>> GetAll()
+        {
+            var employees = await _employeeService.GetAllAsync();
+            return Ok(employees);
+        }
     }
 }
