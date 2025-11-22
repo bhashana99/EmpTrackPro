@@ -47,5 +47,11 @@ namespace EmpTrackPro.API.Services
             return await Task.FromResult(employeeDTOs);
         }
 
+        public async Task DeleteAsync(int employeeNo)
+        {
+            _repo.Delete(employeeNo);
+            await Task.CompletedTask;
+        }
+
     }
 }

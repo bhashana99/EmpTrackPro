@@ -27,5 +27,12 @@ namespace EmpTrackPro.API.Controllers
             var employees = await _employeeService.GetAllAsync();
             return Ok(employees);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _employeeService.DeleteAsync(id);
+            return Ok(new { Message = "Employee Deleted" });
+        }
     }
 }

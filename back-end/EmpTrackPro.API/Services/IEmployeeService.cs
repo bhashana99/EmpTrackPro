@@ -11,7 +11,7 @@ namespace EmpTrackPro.API.Services
         //Task<EmployeeDTO> GetByIdAsync(int employeeNo);
         Task AddAsync(EmployeeDTO employeeDto);
         //Task UpdateAsync(EmployeeDTO employeeDto);
-        //Task DeleteAsync(int employeeNo);
+        Task DeleteAsync(int employeeNo);
         //Task<decimal> GetAverageSalaryAsync();
     }
 }

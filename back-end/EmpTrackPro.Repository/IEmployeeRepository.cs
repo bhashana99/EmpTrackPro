@@ -9,7 +9,7 @@ namespace EmpTrackPro.Repository
         //Employee? GetById(int employeeNo);
         bool Insert(Employee employee);
         //bool Update(Employee employee);
-        //bool Delete(int employeeNo);
+        bool Delete(int employeeNo);
         //decimal GetAverageSalary();
     }
 }

@@ -64,5 +64,26 @@ namespace EmpTrackPro.Repository
 
             return list;
         }
+
+        public bool Delete(int employeeNo)
+        {
+            try
+            {
+                _db.openConnection();
+
+                SqlParameter[] parameters = {
+                    new SqlParameter("@EmployeeNo", SqlDbType.Int) { Value = employeeNo }
+                };
+
+                int rowsAffected = _db.Delete("usp_DeleteEmployee", parameters);
+
+                
+                return rowsAffected > 0;
+            }
+            finally
+            {
+                _db.closeConnection();
+            }
+        }
     }
 }
