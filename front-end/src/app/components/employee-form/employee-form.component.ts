@@ -21,7 +21,7 @@ export class EmployeeFormComponent implements OnInit {
 
   ngOnInit() {
     this.employeeForm = this.fb.group({
-      employeeNumber:['',Validators.required],
+      employeeNo:['',Validators.required],
       firstName:['',Validators.required],
       lastName:['',Validators.required],
       dob:['',Validators.required],
@@ -38,8 +38,15 @@ export class EmployeeFormComponent implements OnInit {
   
 
   onAddEmployee(){
-    const employeeDto : Employee = this.employeeForm.value;
+     const formValue = this.employeeForm.value;
 
+    const employeeDto: Employee = {
+    employeeNo: formValue.employeeNo,
+    firstName: formValue.firstName,
+    lastName: formValue.lastName,
+    DateOfBirth: new Date(formValue.dob).toISOString().split("T")[0],   
+    salary: formValue.salary
+  };
     console.log("add button click",employeeDto);
 
     this.employeeService.addEmployee(employeeDto).subscribe({
