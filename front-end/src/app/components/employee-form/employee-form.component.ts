@@ -12,18 +12,28 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class EmployeeFormComponent implements OnInit {
 
   employeeForm !: FormGroup;
+  maxDate !: string;
 
+  
   constructor(private fb:FormBuilder){}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.employeeForm = this.fb.group({
       employeeNumber:['',Validators.required],
       firstName:['',Validators.required],
       lastName:['',Validators.required],
       dob:['',Validators.required],
       salary:['',Validators.required],
-    })
+    });
+
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    this.maxDate = yesterday.toISOString().split('T')[0];
   }
+
+
+  
 
   onAdd(){
     console.log("add button click");
