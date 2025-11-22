@@ -17,6 +17,7 @@ export class EmployeeFormComponent implements OnInit {
 
   employeeForm!: FormGroup;
   maxDate!: string;
+  isEditMode = false;
 
   constructor(private fb: FormBuilder, private employeeService: EmployeeService) {}
 
@@ -35,19 +36,21 @@ export class EmployeeFormComponent implements OnInit {
     this.maxDate = yesterday.toISOString().split('T')[0];
   }
 
- ngOnChanges(changes: SimpleChanges) {
-  if (changes['selectedEmployee'] && this.selectedEmployee) {
-    const emp = { ...this.selectedEmployee };
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['selectedEmployee'] && this.selectedEmployee) {
+      const emp = { ...this.selectedEmployee };
 
-   
-    if (emp.dateOfBirth) {
-      const date = new Date(emp.dateOfBirth);
-      emp.dateOfBirth = date.toISOString().split('T')[0]; 
+      if (emp.dateOfBirth) {
+        const date = new Date(emp.dateOfBirth);
+        emp.dateOfBirth = date.toISOString().split('T')[0];
+      }
+
+      this.employeeForm.patchValue(emp);
+
+      this.isEditMode = true;
+      this.employeeForm.get('employeeNo')?.disable();
     }
-
-    this.employeeForm.patchValue(emp);
   }
-}
 
   onAddEmployee() {
     const formValue = this.employeeForm.value;
