@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 export class EmployeeTableComponent implements OnInit {
 
   @Output() edit = new EventEmitter<any>();
+
+  editedEmployeeNo: number | null = null;
   
   constructor(private employeeService: EmployeeService) {}
 
@@ -25,6 +27,7 @@ export class EmployeeTableComponent implements OnInit {
   }
 
   onEdit(employee : Employee){
+    this.editedEmployeeNo = employee.employeeNo;
     this.edit.emit(employee);
   }
 
