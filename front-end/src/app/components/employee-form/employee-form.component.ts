@@ -42,6 +42,16 @@ export class EmployeeFormComponent implements OnInit {
 
     console.log("add button click",employeeDto);
 
+    this.employeeService.addEmployee(employeeDto).subscribe({
+      next: (res)=>{
+        console.log("employee added successful: " , res);
+        this.employeeForm.reset();
+      },
+      error(err) {
+        console.log("error adding employee ", err);
+      },
+    })
+
   }
 
   
