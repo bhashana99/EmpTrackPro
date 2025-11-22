@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employee.model';
@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class EmployeeFormComponent implements OnInit {
   @Input() selectedEmployee!: Employee | null;
+  @Output() cancelEdit = new EventEmitter<void>();
 
   employeeForm!: FormGroup;
   maxDate!: string;
@@ -74,5 +75,14 @@ export class EmployeeFormComponent implements OnInit {
         console.log('error adding employee ', err);
       },
     });
+  }
+
+  onCancel() {
+    this.isEditMode = false;
+    this.employeeForm.reset();
+    this.selectedEmployee = null;
+    this.employeeForm.get('employeeNo')?.enable();
+
+    this.cancelEdit.emit();
   }
 }

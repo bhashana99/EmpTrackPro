@@ -1,3 +1,3 @@
-<app-employee-form  [selectedEmployee]="selectedEmployee"/>
-<app-employee-table (edit)="onEditEmployee($event)" />
+<app-employee-form  [selectedEmployee]="selectedEmployee" (cancelEdit)="onCancelEdit()"/>
+<app-employee-table  [editedEmployeeNo]="editedEmployeeNo" (edit)="onEditEmployee($event)"   />
 <router-outlet />

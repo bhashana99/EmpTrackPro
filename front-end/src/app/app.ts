@@ -7,7 +7,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, EmployeeFormComponent, EmployeeTableComponent,CommonModule],
+  standalone:true,
+  imports: [RouterOutlet, EmployeeFormComponent, EmployeeTableComponent, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -15,9 +16,15 @@ export class App {
   protected readonly title = signal('front-end');
 
   selectedEmployee!: Employee | null;
+  editedEmployeeNo: number | null = null;
 
   onEditEmployee(emp: Employee) {
     this.selectedEmployee = emp;
+    this.editedEmployeeNo = emp.employeeNo;
   }
 
+  onCancelEdit() {
+    this.editedEmployeeNo = null;
+    this.selectedEmployee = null;
+  }
 }
