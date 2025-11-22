@@ -39,7 +39,7 @@ export class EmployeeFormComponent implements OnInit {
       employeeNo: formValue.employeeNo,
       firstName: formValue.firstName,
       lastName: formValue.lastName,
-      DateOfBirth: new Date(formValue.dob).toISOString().split('T')[0],
+      dateOfBirth: new Date(formValue.dob).toISOString().split('T')[0],
       salary: formValue.salary,
     };
     console.log('add button click', employeeDto);

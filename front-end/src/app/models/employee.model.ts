@@ -2,6 +2,6 @@ export interface Employee {
   employeeNo: number;
   firstName: string;
   lastName: string;
-  DateOfBirth: string;
+  dateOfBirth: string;
   salary: number;
 }
