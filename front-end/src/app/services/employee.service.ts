@@ -11,7 +11,11 @@ export class EmployeeService {
   
   constructor(private http: HttpClient) {}
 
-  addEmployee(employee:Employee):Observable<any>{
-    return this.http.post(this.apiUrl,employee);
+  addEmployee(employee:Employee):Observable<void>{
+    return this.http.post<void>(this.apiUrl,employee);
+  }
+
+  getAllEmployee():Observable<Employee[]>{
+    return this.http.get<Employee[]>(this.apiUrl);
   }
 }
