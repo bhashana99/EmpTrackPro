@@ -48,17 +48,12 @@ export class EmployeeFormComponent implements OnInit {
     this.employeeService.addEmployee(employeeDto).subscribe({
       next: (res) => {
         console.log('employee added successful: ', res);
+        this.employeeService.loadEmployees();
         this.employeeForm.reset();
       },
       error(err) {
         console.log('error adding employee ', err);
       },
     });
-
-    this.employeeService.getAllEmployee().subscribe({
-      next: (res)=>{
-        console.log("all data",res);
-      }
-    })
   }
 }

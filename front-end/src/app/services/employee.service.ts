@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Employee } from '../models/employee.model';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmployeeService {
   private apiUrl = 'https://localhost:7041/api/employee'; 
+
+   employees = signal<Employee[]>([]);
+
   
   constructor(private http: HttpClient) {}
 
@@ -15,7 +18,11 @@ export class EmployeeService {
     return this.http.post<void>(this.apiUrl,employee);
   }
 
-  getAllEmployee():Observable<Employee[]>{
-    return this.http.get<Employee[]>(this.apiUrl);
+  loadEmployees() {
+    this.http.get<Employee[]>(this.apiUrl).subscribe({
+      next: (data) => this.employees.set(data),
+      error: (err) => console.error('Error loading employees', err)
+    });
   }
+
 }
