@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-employee-form',
+  standalone:true,
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './employee-form.component.html',
   styleUrl: './employee-form.component.css',
