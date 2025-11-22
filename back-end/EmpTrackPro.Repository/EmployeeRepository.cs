@@ -28,7 +28,7 @@ namespace EmpTrackPro.Repository
                     new SqlParameter("@Salary", employee.Salary)
                 };
 
-                int rowsAffected = _db.PopulateData("sp_InsertEmployee", sqlParameter);
+                int rowsAffected = _db.PopulateData("usp_InsertEmployee", sqlParameter);
 
                 return rowsAffected > 0;
 

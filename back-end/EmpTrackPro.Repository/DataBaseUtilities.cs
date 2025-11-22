@@ -7,12 +7,12 @@ namespace EmpTrackPro.Repository
     {
         private SqlConnection _connection;
 
-        private string connectionString = "Server=localhost\\SQLEXPRESS;Database=EmpTrackProDB;Trusted_Connection=True;";
+        private string connectionString = "Server=localhost\\SQLEXPRESS;Database=EmpTrackProDB;Trusted_Connection=True;Encrypt=False;";
 
 
         public void openConnection()
         {
-            if (connectionString == null)
+            if (_connection == null)
             {
                 _connection = new SqlConnection(connectionString);
             }

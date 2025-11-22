@@ -6,7 +6,7 @@ namespace EmpTrackPro.API.Services
 {
     public class EmployeeService : IEmployeeService
     {
-        public EmployeeService() { }
+        
 
         private readonly IEmployeeRepository _repo;
 

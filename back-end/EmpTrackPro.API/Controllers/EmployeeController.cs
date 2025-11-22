@@ -15,10 +15,10 @@ namespace EmpTrackPro.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(EmployeeDTO employee)
+        public async Task<IActionResult> Add([FromBody] EmployeeDTO employee)
         {
             await _employeeService.AddAsync(employee);
-            return Ok(new { Message = "Employee Added" });
+            return StatusCode(201, new { Message= "Employee Created" });
         }
     }
 }
