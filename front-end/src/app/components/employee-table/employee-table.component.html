@@ -35,6 +35,11 @@
           </button>
         </td>
       </tr>
+      <tr *ngIf="employees.length === 0">
+      <td colspan="6" class="px-4 py-2 text-center text-gray-500">
+        No employees found.
+      </td>
+    </tr>
     </tbody>
   </table>
 </div>
