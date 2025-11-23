@@ -51,3 +51,23 @@ cd EmpTrackPro
 ```bash
 npm install
 ```
+
+### Run Development Server
+```bash
+# Backend
+cd back-end/EmpTrackPro.API
+dotnet run
+
+# Frontend
+cd front-end
+ng serve
+```
+Open http://localhost:4200 to access the app.
+
+### API Documentation
+Swagger UI is available at https://localhost:7041/swagger when running the backend.
+
+### License
+This project is open-source and free to use.
+
+
