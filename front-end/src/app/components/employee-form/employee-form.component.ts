@@ -53,6 +53,10 @@ export class EmployeeFormComponent implements OnInit {
     }
   }
 
+  get f() {
+    return this.employeeForm.controls;
+  }
+
   onAddEmployee() {
     this.employeeForm.get('employeeNo')?.enable();
 

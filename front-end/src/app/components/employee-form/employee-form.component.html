@@ -1,15 +1,16 @@
 <div class="bg-white p-6 rounded-2xl shadow-lg w-full transition-all duration-200">
   <form [formGroup]="employeeForm" class="space-y-4">
-
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
-      <label class="text-gray-700 font-medium">Employee Number</label>
+      <label class="text-gray-700 font-medium">Employee No</label>
       <input
         type="number"
         min="1"
         formControlName="employeeNo"
         class="sm:col-span-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-       
       />
+    </div>
+    <div *ngIf="f['employeeNo'].touched && f['employeeNo'].invalid" class="text-red-500 text-sm">
+      Employee Number is required.
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
@@ -20,6 +21,9 @@
         class="sm:col-span-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
+    <div *ngIf="f['firstName'].touched && f['firstName'].invalid" class="text-red-500 text-sm">
+      First Name is required.
+    </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
       <label class="text-gray-700 font-medium">Last Name</label>
@@ -28,6 +32,9 @@
         formControlName="lastName"
         class="sm:col-span-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
+    </div>
+    <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="text-red-500 text-sm">
+      Last Name is required.
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
@@ -39,6 +46,9 @@
         class="sm:col-span-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
+    <div *ngIf="f['dateOfBirth'].touched && f['dateOfBirth'].invalid" class="text-red-500 text-sm">
+      Date of Birth is required.
+    </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
       <label class="text-gray-700 font-medium">Salary</label>
@@ -48,12 +58,15 @@
         class="sm:col-span-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
+    <div *ngIf="f['salary'].touched && f['salary'].invalid" class="text-red-500 text-sm">
+      Salary is required.
+    </div>
 
     <div class="flex flex-col sm:flex-row justify-end gap-3 pt-4">
       <button
         type="button"
         (click)="onAddEmployee()"
-        [disabled]="isEditMode"
+        [disabled]="employeeForm.invalid || isEditMode"
         class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-all duration-150"
       >
         Add
@@ -76,6 +89,5 @@
         Cancel
       </button>
     </div>
-
   </form>
 </div>
