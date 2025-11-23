@@ -54,15 +54,7 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   onAddEmployee() {
-    const formValue = this.employeeForm.value;
-
-    const employeeDto: Employee = {
-      employeeNo: formValue.employeeNo,
-      firstName: formValue.firstName,
-      lastName: formValue.lastName,
-      dateOfBirth: new Date(formValue.dateOfBirth).toISOString().split('T')[0],
-      salary: formValue.salary,
-    };
+    const employeeDto = this.employeeDtoMapper();
     console.log('add button click', employeeDto);
 
     this.employeeService.addEmployee(employeeDto).subscribe({
@@ -77,6 +69,24 @@ export class EmployeeFormComponent implements OnInit {
     });
   }
 
+  onEditEmployee() {
+    const employeeDto = this.employeeDtoMapper();
+    const employeeNo = employeeDto.employeeNo;
+
+    console.log('edit button click', employeeDto);
+
+    this.employeeService.editEmployee(employeeDto, employeeNo).subscribe({
+      next: (res) => {
+        console.log('employee updated successful');
+        this.employeeService.loadEmployees();
+        this.employeeForm.reset();
+      },
+      error: (err) => {
+        console.log('error updating employee ', err);
+      },
+    });
+  }
+
   onCancel() {
     this.isEditMode = false;
     this.employeeForm.reset();
@@ -84,5 +94,17 @@ export class EmployeeFormComponent implements OnInit {
     this.employeeForm.get('employeeNo')?.enable();
 
     this.cancelEdit.emit();
+  }
+
+  private employeeDtoMapper(): Employee {
+    const formValue = this.employeeForm.value;
+
+    return {
+      employeeNo: formValue.employeeNo,
+      firstName: formValue.firstName,
+      lastName: formValue.lastName,
+      dateOfBirth: new Date(formValue.dateOfBirth).toISOString().split('T')[0],
+      salary: formValue.salary,
+    };
   }
 }
