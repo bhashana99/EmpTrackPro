@@ -53,5 +53,20 @@ namespace EmpTrackPro.API.Services
             await Task.CompletedTask;
         }
 
+        public async Task<bool> UpdateAsync(EmployeeDTO dto)
+        {
+            var employee = new Employee
+            {
+                EmployeeNo = dto.EmployeeNo,
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                DateOfBirth = dto.DateOfBirth,
+                Salary = dto.Salary
+            };
+
+            return await Task.FromResult(_repo.Update(employee));
+        }
+
+
     }
 }

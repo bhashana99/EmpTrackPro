@@ -34,5 +34,21 @@ namespace EmpTrackPro.API.Controllers
             await _employeeService.DeleteAsync(id);
             return Ok(new { Message = "Employee Deleted" });
         }
+
+
+        [HttpPut("{employeeNo}")]
+        public async Task<IActionResult> Update(int employeeNo, [FromBody] EmployeeDTO dto)
+        {
+            if (employeeNo != dto.EmployeeNo)
+                return BadRequest("Employee number mismatch.");
+
+            bool result = await _employeeService.UpdateAsync(dto);
+
+            if (!result)
+                return NotFound("Employee not found.");
+
+            return Ok("Employee updated successfully.");
+        }
+
     }
 }

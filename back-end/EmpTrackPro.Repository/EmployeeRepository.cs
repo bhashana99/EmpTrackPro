@@ -85,5 +85,32 @@ namespace EmpTrackPro.Repository
                 _db.closeConnection();
             }
         }
+
+
+        public bool Update(Employee employee)
+        {
+            try
+            {
+                _db.openConnection();
+
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+            new SqlParameter("@EmployeeNo", employee.EmployeeNo),
+            new SqlParameter("@FirstName", employee.FirstName),
+            new SqlParameter("@LastName", employee.LastName),
+            new SqlParameter("@DateOfBirth", employee.DateOfBirth),
+            new SqlParameter("@Salary", employee.Salary)
+                };
+
+                int rowsAffected = _db.PopulateData("usp_UpdateEmployee", parameters);
+
+                return rowsAffected > 0;
+            }
+            finally
+            {
+                _db.closeConnection();
+            }
+        }
+
     }
 }
