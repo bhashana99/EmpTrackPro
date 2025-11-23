@@ -1,67 +1,60 @@
-<div class="w-full max-w-3xl mx-auto bg-white p-6 rounded-xl shadow">
+<div class="bg-white p-6 rounded-2xl shadow-lg w-full transition-all duration-200">
+  <form [formGroup]="employeeForm" class="space-y-4">
 
-
-  <h2 class="text-4xl text-center font-extrabold mb-10  text-gray-700">
-    EmpTrack Pro
-  </h2>
-
-  <form [formGroup]="employeeForm"  class="space-y-4">
-
-   
-    <div class="grid grid-cols-3 items-center gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
       <label class="text-gray-700 font-medium">Employee Number</label>
       <input
         type="number"
         min="1"
         formControlName="employeeNo"
-        class="col-span-2 w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring"
+        class="sm:col-span-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+        [disabled]="isEditMode"
       />
     </div>
 
-    <div class="grid grid-cols-3 items-center gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
       <label class="text-gray-700 font-medium">First Name</label>
       <input
         type="text"
         formControlName="firstName"
-        class="col-span-2 w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring"
+        class="sm:col-span-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
 
-    <div class="grid grid-cols-3 items-center gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
       <label class="text-gray-700 font-medium">Last Name</label>
       <input
         type="text"
         formControlName="lastName"
-        class="col-span-2 w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring"
+        class="sm:col-span-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
 
-    <div class="grid grid-cols-3 items-center gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
       <label class="text-gray-700 font-medium">Date of Birth</label>
       <input
         type="date"
         formControlName="dateOfBirth"
         [max]="maxDate"
-        class="col-span-2 w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring"
+        class="sm:col-span-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
 
-    <div class="grid grid-cols-3 items-center gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
       <label class="text-gray-700 font-medium">Salary</label>
       <input
         type="number"
         formControlName="salary"
-        class="col-span-2 w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring"
+        class="sm:col-span-2 w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
     </div>
 
-    
-    <div class="flex justify-end gap-3 pt-4">
+    <div class="flex flex-col sm:flex-row justify-end gap-3 pt-4">
       <button
         type="button"
         (click)="onAddEmployee()"
         [disabled]="isEditMode"
-        class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+        class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-all duration-150"
       >
         Add
       </button>
@@ -69,17 +62,15 @@
       <button
         type="button"
         [disabled]="!isEditMode"
-        class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 disabled:opacity-50"
+        class="px-5 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 disabled:opacity-50 transition-all duration-150"
       >
         Update
       </button>
 
-     
-
       <button
         type="button"
         (click)="onCancel()"
-        class="px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500"
+        class="px-5 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 transition-all duration-150"
       >
         Cancel
       </button>
