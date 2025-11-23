@@ -82,6 +82,7 @@ export class EmployeeFormComponent implements OnInit {
         console.log('employee updated successful');
         this.employeeService.loadEmployees();
         this.employeeForm.reset();
+        this.employeeForm.get('employeeNo')?.enable();
       },
       error: (err) => {
         console.log('error updating employee ', err);
