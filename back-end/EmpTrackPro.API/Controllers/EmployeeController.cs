@@ -47,7 +47,7 @@ namespace EmpTrackPro.API.Controllers
             if (!result)
                 return NotFound("Employee not found.");
 
-            return Ok("Employee updated successfully.");
+            return Ok(new { message = "Employee updated successfully." });
         }
 
     }

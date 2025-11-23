@@ -54,6 +54,8 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   onAddEmployee() {
+    this.employeeForm.get('employeeNo')?.enable();
+
     const employeeDto = this.employeeDtoMapper();
     console.log('add button click', employeeDto);
 
@@ -97,7 +99,7 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   private employeeDtoMapper(): Employee {
-    const formValue = this.employeeForm.value;
+    const formValue = this.employeeForm.getRawValue();
 
     return {
       employeeNo: formValue.employeeNo,
